@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #c7fff8;
+        }
+        .ball {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #ff1916;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            left: 100px;
+            top: 100px;
+        }
+    
+    </style>
+</head>
+<body>
+   
+    <!-- 事件處理器 -->
+        
+       
+
+    <div class="rect">
+        
+
+    </div>
+    <div id="info"></div>
+
+       
+    <script>
+        let rect = document.querySelector('.rect');
+        const arr=[];
+
+        let startTime= new Date().getTime();//起始時間
+        let info = document.querySelector('#info');
+
+       function isPrime(num){
+
+            if (num <=3){
+                //num ==1,2,3;
+                return true;
+            }else{
+                for (let k=2;k<=Math.sqrt(num);k++){
+                                // console.log(k);
+                    if (num%k==0){
+                                // console.log('Not a prime number');
+                        return false;
+                        break;//發現有數字整除就jump out of loop
+                                
+                    }else{
+                                // console.log('Yes');
+                                
+                    }
+                }
+            }
+            
+            return true; 
+           
+       }
+       
+       for(let i=2;i<=100000;i++){
+           
+           if (isPrime(i)){
+            arr.push(i);
+           }
+
+
+       }
+        rect.innerHTML = JSON.stringify(arr)+'<br>'; 
+        rect.innerHTML += JSON.stringify(arr.length)+'<br>';      
+        info.innerHTML += '<br>' + (new Date().getTime()-startTime) +'ms<br>';
+            
+        
+       
+
+       
+
+
+
+        
+           
+    </script>
+</body>
+</html>
